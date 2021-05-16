@@ -1,4 +1,4 @@
-import React, {useState, useEffect }from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -7,12 +7,19 @@ import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 // import WorldMap from "./WorldMap";
-import { NavLink, Route } from "react-router-dom";
+import { NavLink, Route,  BrowserRouter } from "react-router-dom";
 // import "./App.css";
-import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
-
+import SideNav, {
+  Toggle,
+  Nav,
+  NavItem,
+  NavIcon,
+  NavText,
+} from "@trendmicro/react-sidenav";
+import Link from "next/link";
 import dynamic from "next/dynamic";
-
+import Navbar from "./Navbar";
+import { useRouter } from "next/router";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -64,44 +71,44 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SimpleTabs() {
-  const classes = useStyles();
+  const router = useRouter();
   const [value, setValue] = React.useState(0);
   const MapWithNoSSR = dynamic(() => import("./WorldMap"), {
-    ssr: false
+    ssr: false,
   });
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-
- 
-
-  return  (<MapWithNoSSR />)
-//   (
-    // <div className={classes.root}>
-      {/* <AppBar position="static" className="app-link-container"> */}
- 
-        {/* <NavLink exact to="/" activeClassName="activeRoute" className="app-link">
-          {" "}
-          <div className="app-link-block">Home</div>{" "}
-        </NavLink>
-        <NavLink to="/map" activeClassName="activeRoute" className="app-link">
-          {" "}
-          <div className="app-link-block">Map</div>{" "}
-        </NavLink>
-        <NavLink to="/charts" activeClassName="activeRoute" className="app-link">
-          {" "}
-          <div className="app-link-block">Charts</div>{" "}
-        </NavLink>
-        <NavLink to="/about" activeClassName="activeRoute"  className="app-link">
-          {" "}
-          <div className="app-link-block">About</div>{" "}
-        </NavLink> */}
-        {/* <Tab label="Item Three" {...a11yProps(2)} /> */}
-      {/* </AppBar> */}
+  return (
+    <div>
      
+        <Navbar />
+     
+      {/* <AppBar position="static" className="app-link-container">
+     
+ 
+        <Link  href="/" activeClassName="activeRoute" className="app-link">
+          
+          <a className="app-link-block">Home</a>
+        </Link>
+        <Link href="/map" activeClassName="activeRoute" className="app-link">
+  
+          <a className="app-link-block">Map</a>
+        </Link>
+        <Link href="/charts" activeClassName="activeRoute" className="app-link">
+        
+          <a className="app-link-block">Charts</a>
+        </Link>
+        <Link href="/about" activeClassName="activeRoute"  className="app-link">
+          
+          <a className="app-link-block">About</a>
+        </Link> 
+      </AppBar> */}
 
-    {/* </div> */}
-//   );
-  }
+      <MapWithNoSSR />
+     
+    </div>
+  );
+}
