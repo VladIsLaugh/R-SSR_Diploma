@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import Wrapper from "../components/shared/Wrapper/Wrapper";
+import Wrapper from "../../components/shared/Wrapper/Wrapper";
 
-export default function HomePage() {
+
+
+export default function SimpleTabs() {
   return (
     <div>
       <Wrapper>
-        <p>
+      <p>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor
           possimus voluptate ea sit ut? Voluptatum ipsa ut atque repellat fugit
           explicabo eum, nobis consequuntur in perspiciatis ratione provident,

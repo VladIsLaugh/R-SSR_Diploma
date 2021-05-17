@@ -8,9 +8,9 @@ import {
   CardContent,
 } from "@material-ui/core";
 import InfoBox from "../InfoBox/InfoBox";
-import LineGraph from "../../LineGraph/LineGraph";
-import Table from "../..//Table/Table";
-import { sortData, prettyPrintStat } from "../util";
+import LineGraph from "../LineGraph/LineGraph";
+import Table from "../Table/Table";
+import { sortData, prettyPrintStat } from "../../../helpers/util";
 import numeral from "numeral";
 import Map from "../Map/Map";
 import "leaflet/dist/leaflet.css";
