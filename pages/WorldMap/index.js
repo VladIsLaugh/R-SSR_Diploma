@@ -7,6 +7,7 @@ import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 // import WorldMap from "./WorldMap";
+import Layout from "./Layout"
 import { NavLink, Route,  BrowserRouter } from "react-router-dom";
 // import "./App.css";
 import SideNav, {
@@ -18,8 +19,9 @@ import SideNav, {
 } from "@trendmicro/react-sidenav";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import Navbar from "./Navbar";
+import {Navbar} from "./Navbar";
 import { useRouter } from "next/router";
+import { Button } from './Button';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -77,19 +79,86 @@ export default function SimpleTabs() {
     ssr: false,
   });
 
+  //   const [click, setClick] = useState(false);
+//   const [button, setButton] = useState(true);
+
+//   const handleClick = () => setClick(!click);
+//   const closeMobileMenu = () => setClick(false);
+
+//   const showButton = () => {
+//     if (window.innerWidth <= 960) {
+//       setButton(false);
+//     } else {
+//       setButton(true);
+//     }
+//   };
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
   return (
     <div>
+
+<Layout >
+  <MapWithNoSSR />
+  </Layout>
+    
      
-        <Navbar />
+     {/* <BrowserRouter >
+     <AppBar >
+      <nav className='navbar' >
+        <div className='navbar-container'>
+          <Link href='/' className='navbar-logo'  >
+          
+            <i class='fab fa-typo3' />
+          </Link>
+          <div className='menu-icon' >
+            <i className={'fas fa-times' } />
+          </div>
+          <ul className={'nav-menu active'}>
+            <li className='nav-item'>
+              <Link href='/' className='nav-links' >
+                <a href="/"> Home </a>
+              </Link>
+            </li>
+            <li className='nav-item'>
+              <Link
+                href='/services'
+                className='nav-links'
+                
+              >
+                <a href="/"> Home </a>
+              </Link>
+            </li>
+            <li className='nav-item'>
+              <Link
+                href='/products'
+                className='nav-links'
+                
+              >
+                <a href="/"> Home </a>
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                href='/sign-up'
+                className='nav-links-mobile'
+               
+              >
+                <a href="/"> Home </a>
+              </Link>
+            </li>
+          </ul>
+           <Button buttonStyle='btn--outline'>SIGN UP</Button>        </div>
+      </nav>
+      </AppBar> 
+       </BrowserRouter> */}
      
-      {/* <AppBar position="static" className="app-link-container">
+       {/* <AppBar position="static" className="app-link-container">
      
- 
-        <Link  href="/" activeClassName="activeRoute" className="app-link">
+ <Link  href="/" activeClassName="activeRoute" className="app-link">
           
           <a className="app-link-block">Home</a>
         </Link>
@@ -105,9 +174,9 @@ export default function SimpleTabs() {
           
           <a className="app-link-block">About</a>
         </Link> 
-      </AppBar> */}
-
-      <MapWithNoSSR />
+      </AppBar>   */}
+{/* lorem40 */}
+      {/* <MapWithNoSSR /> */}
      
     </div>
   );

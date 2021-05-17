@@ -1,83 +1,45 @@
-import React, { useState, useEffect } from 'react';
-import { Button } from './Button';
-import { Link } from 'react-router-dom';
-import { NavLink, Route,  BrowserRouter } from "react-router-dom";
-// import './Navbar.css';
+import Link from 'next/link'
+import {useRouter} from 'next/router'
+// import {parseCookies} from 'nookies'
+// import cookie from 'js-cookie'
+export const Navbar = ()=>{
+   const router = useRouter()
+  //  const cookieuser = parseCookies()
+  //  const user =  cookieuser.user ? JSON.parse(cookieuser.user) : ""
+ 
+   function isActive(route){
+     if(route== router.pathname){
+         return "active"
+     }
+     else ""
+  }
 
-function Navbar() {
-  const [click, setClick] = useState(false);
-  const [button, setButton] = useState(true);
-
-  const handleClick = () => setClick(!click);
-  const closeMobileMenu = () => setClick(false);
-
-  const showButton = () => {
-    if (window.innerWidth <= 960) {
-      setButton(false);
-    } else {
-      setButton(true);
-    }
-  };
-
-  useEffect(() => {
-    showButton();
-  }, []);
-
-  // window.addEventListener('resize', showButton);
-
-  return (
-    <>
-     <BrowserRouter>
-      <nav className='navbar'>
-        <div className='navbar-container'>
-          <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-            TRVL
-            <i class='fab fa-typo3' />
-          </Link>
-          <div className='menu-icon' onClick={handleClick}>
-            <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
-          </div>
-          <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-            <li className='nav-item'>
-              <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-                Home
-              </Link>
-            </li>
-            <li className='nav-item'>
-              <Link
-                to='/services'
-                className='nav-links'
-                onClick={closeMobileMenu}
-              >
-                Services
-              </Link>
-            </li>
-            <li className='nav-item'>
-              <Link
-                to='/products'
-                className='nav-links'
-                onClick={closeMobileMenu}
-              >
-                Products
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                to='/sign-up'
-                className='nav-links-mobile'
-                onClick={closeMobileMenu}
-              >
-                Sign Up
-              </Link>
-            </li>
+    return(
+        <nav>
+        <div className="nav-wrapper #1565c0 blue darken-3">
+          <Link href="/"><a className="brand-logo left">MyStore</a></Link>
+          <ul id="nav-mobile" className="right">
+          <li className={isActive('/cart')}><Link href="/cart"><a>cart</a></Link></li>
+            {
+          
+              <li className={isActive('/create')}><Link href="/create"><a>create</a></Link></li>
+            }
+        
+            
+            <>
+                <li className={isActive('/account')}><Link href="/account"><a>Account</a></Link></li>
+                <li><button className="btn red" onClick={()=>{
+                  cookie.remove('token')
+                  cookie.remove('user')
+                  router.push('/login')
+                }}>logout</button></li>  
+             </>   
+            
+ 
+           
+           
           </ul>
-          {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
         </div>
       </nav>
-      </BrowserRouter>
-    </>
-  );
+    )
 }
-
-export default Navbar;
