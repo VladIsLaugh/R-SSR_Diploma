@@ -1,7 +1,7 @@
-import { Navbar } from "./Navbar";
+import { Navbar } from "../Navbar/Navbar";
 import Head from "next/head";
 
-const Layout = ({ children }) => {
+const Wrapper = ({ children }) => {
   return (
     <>
       <Head>
@@ -22,4 +22,4 @@ const Layout = ({ children }) => {
   );
 };
 
-export default Layout;
+export default Wrapper;

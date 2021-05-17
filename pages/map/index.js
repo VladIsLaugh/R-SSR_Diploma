@@ -7,7 +7,7 @@ import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 // import WorldMap from "./WorldMap";
-import Layout from "./Layout"
+import Wrapper from "../../components/shared/Wrapper/Wrapper"
 import { NavLink, Route,  BrowserRouter } from "react-router-dom";
 // import "./App.css";
 import SideNav, {
@@ -19,9 +19,9 @@ import SideNav, {
 } from "@trendmicro/react-sidenav";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import {Navbar} from "./Navbar";
+import {Navbar} from "../../components/shared/Navbar/Navbar";
 import { useRouter } from "next/router";
-import { Button } from './Button';
+import { Button } from '../../components/shared/Button/Button';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -75,7 +75,7 @@ const useStyles = makeStyles((theme) => ({
 export default function SimpleTabs() {
   const router = useRouter();
   const [value, setValue] = React.useState(0);
-  const MapWithNoSSR = dynamic(() => import("./WorldMap"), {
+  const MapWithNoSSR = dynamic(() => import("../../components/map/WorldMap/WorldMap"), {
     ssr: false,
   });
 
@@ -100,9 +100,9 @@ export default function SimpleTabs() {
   return (
     <div>
 
-<Layout >
+<Wrapper >
   <MapWithNoSSR />
-  </Layout>
+  </Wrapper>
     
      
      {/* <BrowserRouter >
