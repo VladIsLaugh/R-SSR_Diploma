@@ -36,18 +36,10 @@ export const Navbar = () => {
               <a>Charts</a>
             </Link>
           </li>
-
-          <li>
-            <button
-              className="btn red"
-              onClick={() => {
-                cookie.remove("token");
-                cookie.remove("user");
-                router.push("/login");
-              }}
-            >
-              logout
-            </button>
+          <li className={isActive("/table")}>
+            <Link href="/table">
+              <a>Table</a>
+            </Link>
           </li>
         </ul>
       </div>

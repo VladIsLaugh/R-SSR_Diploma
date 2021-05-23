@@ -16,17 +16,6 @@ import Map from "../Map/Map";
 import "leaflet/dist/leaflet.css";
 
 const WorldMap = () => {
-
-  // const [isBrowser, setIsBrowser] = useState(false);
-  // useEffect(() => {
-  //   setIsBrowser(true);
-  // }, []);
-
-  // if (!isBrowser) {
-  //   return null;
-  // }
-
-
   const [country, setInputCountry] = useState("worldwide");
   const [countryInfo, setCountryInfo] = useState({});
   const [countries, setCountries] = useState([]);
@@ -137,8 +126,6 @@ const WorldMap = () => {
           <div className="app__information">
             <h3>Live Cases by Country</h3>
             <Table countries={tableData} />
-            <h3>Worldwide new {casesType}</h3>
-            <LineGraph casesType={casesType} />
           </div>
         </CardContent>
       </Card>

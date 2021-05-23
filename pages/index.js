@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from "react";
 import Wrapper from "../components/shared/Wrapper/Wrapper";
+import HeroSection from "../components/home/Hero/HeroSection";
+import Cards from "../components/home/Cards/Cards";
+// import Footer from "../components/home/Footer/Footer";
 
 export default function HomePage() {
   return (
     <div>
       <Wrapper>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor
-          possimus voluptate ea sit ut? Voluptatum ipsa ut atque repellat fugit
-          explicabo eum, nobis consequuntur in perspiciatis ratione provident,
-          libero beatae aperiam pariatur iure minima inventore non numquam
-          maiores voluptates debitis delectus! Dolorem veritatis quia quisquam
-          amet assumenda consequuntur ab distinctio!
-        </p>
+        <HeroSection />
+        <Cards />
+         {/* <Footer /> */}
       </Wrapper>
     </div>
   );

@@ -9,6 +9,10 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
+    "@material-ui/data-grid": "^4.0.0-alpha.29",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.58",
+    "@material-ui/x-grid-data-generator": "^4.0.0-alpha.29",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
@@ -19,15 +23,14 @@
     "materialize-css": "^1.0.0-rc.2",
     "next": "^10.0.0",
     "numeral": "^2.0.6",
-    "postcss": "^8.2.15",
-    "postcss-cli": "^8.3.1",
     "react": "17.0.1",
     "react-chartjs-2": "^2.9.0",
     "react-dom": "17.0.1",
     "react-leaflet": "^2.7.0",
+    "react-multi-select-component": "^4.0.2",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
-    "tailwindcss": "^2.1.2"
+    "recharts": "^2.0.9"
   }
 }
